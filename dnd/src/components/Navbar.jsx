@@ -2,8 +2,8 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <div>
-      <div className="navbar bg-base-300 shadow-sm p-8 border-white">
+    <div className="flex">
+      <div className="navbar bg-base-300 shadow-sm p-8 border-orange-500 border-4 rounded-md m-3">
         <div className="flex-1">
           <a className="btn btn-ghost text-3xl">🚀 Rocket AI Bot</a>
         </div>

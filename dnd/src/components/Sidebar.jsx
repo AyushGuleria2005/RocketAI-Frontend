@@ -2,15 +2,18 @@ import React from "react";
 import DragnDrop from "./DragnDrop";
 import Preview from "./Preview";
 import TextContex from "./TextContex";
+import { useContext } from "react";
+import { DocumentContext } from "../context/Document";
 
 const Sidebar = () => {
+  const sourceList = useContext(DocumentContext);
   return (
     <div>
       <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-center justify-center ">
           {/* Page content */}
-          <h1>Hello world</h1>
+          {/* <h1>Hello world</h1> */}
         </div>
         <div className="drawer-side">
           <label
