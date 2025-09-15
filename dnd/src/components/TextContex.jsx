@@ -1,12 +1,39 @@
-import React from 'react'
+import React, { useContext, useState } from "react";
+import { DocumentContext } from "../context/Document";
+import axios from "axios";
 
 const TextContex = () => {
-  return (
-    <div className='mt-12 p-3 flex flex-col gap-3 border-orange-500 border-2 rounded-md'>
-      <input type="text" placeholder="Add some context.." className="input input-md" />
-      <button className="btn">Upload 🚀</button>
-    </div>
-  )
-}
+  const [text, setText] = useState("");
+  const { list } = useContext(DocumentContext);
 
-export default TextContex
+  return (
+    <div className="mt-2 p-3 flex flex-col gap-3 border-white border-2 rounded-2xl shadow-md hover:shadow-lg transition-all duration-200">
+      <input
+        type="text"
+        placeholder="Add some context.."
+        className="input input-md shadow-sm hover:shadow-md transition-all duration-200"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      />
+      <button
+        className="btn shadow-md hover:shadow-lg hover:scale-105 transition-all duration-200"
+        onClick={async () => {
+          const formData = new FormData();
+          list.forEach((file) => {
+            formData.append("files", file);
+          });
+          formData.append("text", text);
+          try {
+            await axios.post("http://localhost:3000/upload", formData);
+          } catch (err) {
+            console.log(err.message);
+          }
+        }}
+      >
+        Upload 🚀
+      </button>
+    </div>
+  );
+};
+
+export default TextContex;

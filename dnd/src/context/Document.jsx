@@ -1,6 +1,7 @@
 // Import context from react
 import { createContext, useState } from "react";
 
+
 // Creating a context
 export const DocumentContext = createContext(null);
 
