@@ -15,8 +15,8 @@ const UserChat = () => {
       const res = await axios.post("http://localhost:3000/chat", {
         query,
       });
-    //   setAnswer(res.data.answer);
-      setAnswer(res);
+      setAnswer(res.data.answer);
+      // setAnswer(res);
     } catch (error) {
       console.error(error);
       setAnswer("⚠️ Something went wrong.");
