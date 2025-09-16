@@ -4,8 +4,7 @@ import axios from "axios";
 
 const TextContex = () => {
   const [text, setText] = useState("");
-  const { list } = useContext(DocumentContext);
-
+  const { list,setToast } = useContext(DocumentContext);
   return (
     <div className="mt-2 p-3 flex flex-col gap-3 border-white border-2 rounded-2xl shadow-md hover:shadow-lg transition-all duration-200">
       <input
@@ -25,6 +24,10 @@ const TextContex = () => {
           formData.append("text", text);
           try {
             await axios.post("http://localhost:3000/upload", formData);
+            setToast(true)
+            setTimeout(()=>{
+              setToast(false)
+            },2000)
           } catch (err) {
             console.log(err.message);
           }

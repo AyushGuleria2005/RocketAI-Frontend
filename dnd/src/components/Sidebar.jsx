@@ -15,7 +15,7 @@ const Sidebar = () => {
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-center justify-center border-red border-2">
           {/* Page content */}
-          
+          <CollegeInfo/>
         </div>
         <div className="drawer-side">
           <label

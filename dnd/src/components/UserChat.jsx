@@ -1,10 +1,14 @@
 import { useState } from "react";
 import axios from "axios";
+import { useContext } from "react";
+import { DocumentContext } from "../context/Document";
+import ReactMarkdown from 'https://esm.sh/react-markdown@7'
 
 const UserChat = () => {
   const [query, setQuery] = useState("");
   const [answer, setAnswer] = useState("");
   const [loading, setLoading] = useState(false);
+  const {toast} = useContext(DocumentContext);
 
   const askBot = async () => {
     if (!query.trim()) return;
@@ -46,9 +50,15 @@ const UserChat = () => {
       {answer && (
         <div className="mt-6 w-full max-w-xl bg-white shadow p-4 rounded-lg">
           <h2 className="font-semibold mb-2">Answer:</h2>
-          <p>{answer}</p>
+          <ReactMarkdown>{answer}</ReactMarkdown>
+          {/* <p></p> */}
         </div>
       )}
+      <div className="toast">
+  {toast && <div className="alert alert-info bg-green-500 w-52">
+    <span>Upload successful 🚀</span>
+  </div>}
+</div>
     </div>
   );
 }

@@ -8,5 +8,6 @@ export const DocumentContext = createContext(null);
 // Creating a Provider
 export const DocumentProvider = (props) => {
   const [list, setList] = useState([]);
-  return <DocumentContext.Provider value={{list,setList}}>{props.children}</DocumentContext.Provider>;
+  const [toast,setToast] = useState(false)
+  return <DocumentContext.Provider value={{list,setList,toast,setToast}}>{props.children}</DocumentContext.Provider>;
 };
