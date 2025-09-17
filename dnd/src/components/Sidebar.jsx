@@ -6,6 +6,7 @@ import { useContext } from "react";
 import { DocumentContext } from "../context/Document";
 import CollegeInfo from "./CollegeInfo";
 import UserChat from "./UserChat";
+import Analytics from "./Analytics";
 
 const Sidebar = () => {
   const sourceList = useContext(DocumentContext);
@@ -15,7 +16,14 @@ const Sidebar = () => {
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-center justify-center border-red border-2">
           {/* Page content */}
-          
+          <div className="mr-44 mt-10">
+          <CollegeInfo />
+          </div>
+          <div className="flex mt-20 gap-8 mr-12">
+            <Analytics />
+            <Analytics />
+            <Analytics />
+          </div>
         </div>
         <div className="drawer-side">
           <label
@@ -23,7 +31,7 @@ const Sidebar = () => {
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <ul className="menu bg-base-300 text-base-content max-h-full w-96 px-4 border-2 ml-5 mt-2 border-white fixed top-32 rounded-2xl shadow-md hover:shadow-lg transition-all duration-200">
+          <ul className="menu bg-base-300 text-base-content max-h-full w-96 px-4 border-2 z-10 border-black sticky top-32 rounded-2xl shadow-md hover:shadow-lg transition-all duration-200 ml-5">
             <DragnDrop />
             <Preview />
             <TextContex />

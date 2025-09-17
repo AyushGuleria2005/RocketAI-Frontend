@@ -2,7 +2,7 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <div className="navbar bg-base-300 shadow-md hover:shadow-xl transition-all duration-200 p-8 border-white border-4 rounded-3xl m-1 fixed">
+    <div className="navbar bg-base-300 shadow-md hover:shadow-xl transition-all duration-200 p-8 border-black border-4 rounded-3xl m-1 fixed z-20">
       <div className="flex-1">
         <a className="btn btn-ghost text-3xl">🚀 Rocket AI Bot</a>
       </div>

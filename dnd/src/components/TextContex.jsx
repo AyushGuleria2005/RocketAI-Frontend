@@ -7,7 +7,7 @@ const TextContex = () => {
   const { list } = useContext(DocumentContext);
 
   return (
-    <div className="mt-2 p-3 flex flex-col gap-3 border-white border-2 rounded-2xl shadow-md hover:shadow-lg transition-all duration-200">
+    <div className="mt-2 p-3 flex flex-col gap-3 border-black border-2 rounded-2xl shadow-md hover:shadow-lg transition-all duration-200">
       <input
         type="text"
         placeholder="Add some context.."
@@ -24,7 +24,7 @@ const TextContex = () => {
           });
           formData.append("text", text);
           try {
-            await axios.post("http://localhost:3000/upload", formData);
+            await axios.post("http://localhost:3000/upload", formData, {withCredentials: true});
           } catch (err) {
             console.log(err.message);
           }

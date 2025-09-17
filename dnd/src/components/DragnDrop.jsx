@@ -7,7 +7,7 @@ const DragnDrop = () => {
   return (
     <div
       className={`card w-90 bg-base-200 card-xs shadow-md hover:shadow-lg hover:scale-[1.01] 
-      transition-all duration-200 h-52 border-2 rounded-2xl cursor-pointer`}
+      transition-all duration-200 h-52 border-2 rounded-2xl cursor-pointer border-black`}
       
       onDragOver={(e)=>{
         e.preventDefault();
@@ -29,8 +29,8 @@ const DragnDrop = () => {
       }}
     >
       <div className="card-body rounded-lg flex justify-center items-center">
-        <h1 className="text-lg text-slate-400">
-          Drop files here or click to browse 📁
+        <h1 className="text-lg text-red-500 font-medium">
+          Drag and Drop Files here
         </h1>
       </div>
     </div>
