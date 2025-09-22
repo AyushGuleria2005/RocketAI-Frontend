@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 const CollegeInfo = () => {
   const [selectedCollege, setSelectedCollege] = useState("");
-
+  useEffect(()=>{
+    if(selectedCollege==="") return;
+    const res = axios.get("http://localhost:3000/getCollegeDocs",{selectedCollege},{withCredentials:true});
+    console.log("Response from useEffect: ",res.data)
+  },[selectedCollege])
   const handleChange = async (e) => {
     const value = e.target.value;
     if (value === "") return;
